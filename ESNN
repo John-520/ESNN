@@ -30,9 +30,9 @@ class MaxPool(nn.Module):
 
 
 
-class PGDDTN(nn.Module):
+class ESSS(nn.Module):
     def __init__(self, args, H_env_data, H_data, in_features, pretrained=False, in_channel=1, out_channel=5):
-        super(PGDDTN, self).__init__()
+        super(ESNN, self).__init__()
         if pretrained == True:
             warnings.warn("Pretrained model is not available")
 
@@ -48,7 +48,7 @@ class PGDDTN(nn.Module):
                
         
         
-        self.weight_env = H_env_data.cuda()                                   # [1,1,1200]
+        self.weight_env = H_env_data.cuda()                                   # 
         self.bias_env = torch.zeros([ self.weight_env.shape[0] ]).cuda()      #
         
         self.weight = H_data.cuda()
